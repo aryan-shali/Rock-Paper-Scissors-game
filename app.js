@@ -4,9 +4,11 @@ var rck = document.getElementById('rock').innerHTML;
 var sic = document.getElementById('sic').innerHTML;
 var pap = document.getElementById('pap').innerHTML;
 var scc = document.getElementById('scorec');
-var scc = document.getElementById('scorep');
-
+var scp = document.getElementById('scorep');
+var txt = document.getElementById('textstatus');
 scc.innerHTML = 0;
+scp.innerHTML = 0;
+
 
 function rock(aa) {
     var pp = aa.innerHTML;
@@ -26,5 +28,46 @@ function rock(aa) {
     } else {
         rrc.innerHTML = "paper";
     }
+
+    if (com == result) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "equal";
+        txt.style.color = "blue";
+    } else if (result == 1 && com == 2) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "winner!";
+        txt.style.color = "green";
+        scp.innerHTML++
+
+    } else if (result == 2 && com == 1) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "loser";
+        txt.style.color = "red";
+        scc.innerHTML++
+
+    } else if (result == 1 && com == 3) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "loser";
+        txt.style.color = "red";
+        scc.innerHTML++
+
+    } else if (result == 3 && com == 1) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "winner!";
+        txt.style.color = "green";
+        scp.innerHTML++
+    } else if (result == 3 && com == 2) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "loser";
+        txt.style.color = "red";
+        scc.innerHTML++
+    } else if (result == 2 && com == 3) {
+        txt.style.opacity = "100"
+        txt.innerHTML = "winner!";
+        txt.style.color = "green";
+        scp.innerHTML++
+
+    }
+
 
 }
